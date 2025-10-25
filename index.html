@@ -74,7 +74,7 @@
     <!-- Hero Section with Navigation -->
     <section class="relative min-h-screen flex flex-col overflow-hidden bg-white">
         <!-- Navigation -->
-        <nav class="relative z-20 w-full py-6">
+        <nav class="relative z-20 w-full py-3 md:py-6">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="grid grid-cols-3 grid-rows-2 items-center gap-y-0">
                     <!-- Logo -->
@@ -171,10 +171,10 @@
         </nav>
 
         <!-- Hero Content -->
-        <div class="flex-1 flex items-center justify-center">
+        <div class="flex-1 flex items-start md:items-center justify-center pt-4 md:pt-0">
             <div 
                 class="absolute inset-0 z-0"
-                style="background-image: url('https://readdy.ai/api/search-image?query=elegant%20modern%20Berlin%20apartment%20building%20facade%20architecture%20with%20clean%20lines%20and%20classic%20European%20style%20soft%20natural%20daylight%20minimal%20professional%20real%20estate%20photography%20muted%20tones%20subtle%20depth&width=1920&height=1080&seq=hero-bg-001&orientation=landscape'); background-size: cover; background-position: center; opacity: 0.12;"
+                style="background-image: url('https://readdy.ai/api/search-image?query=elegant%20modern%20Berlin%20apartment%20building%20facade%20architecture%20with%20clean%20lines%20and%20classic%20European%20style%20soft%20natural%20daylight%20minimal%20professional%20real%20estate%20photography%20muted%20tones%20subtle%20depth&width=1920&height=1080&seq=hero-bg-001&orientation=landscape'); background-size: cover; background-position: center; opacity: 0.20;"
             ></div>
             <div class="relative z-10 max-w-6xl mx-auto px-6 text-center fade-in">
                 <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1e3a5f] mb-6 leading-tight">
@@ -231,27 +231,27 @@
     </section>
 
     <!-- Vorteile Section -->
-    <section id="vorteile" class="py-20 bg-white">
+    <section id="vorteile" class="py-20 bg-[#1e3a5f]">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-bold text-[#1e3a5f] text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-16">
                 Ihre Vorteile mit Berimmo.
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
-                <div class="flex flex-col items-start p-8 rounded-lg bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <div class="flex flex-col items-start p-8 rounded-lg bg-white hover:shadow-lg transition-shadow duration-300">
                     <div class="w-14 h-14 flex items-center justify-center mb-6">
                         <i class="ri-time-line text-5xl text-[#1e3a5f]"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-[#1e3a5f] mb-4">Zeitersparnis</h3>
                     <p class="text-gray-700 text-lg leading-relaxed">Wir übernehmen Auswahl & Kommunikation.</p>
                 </div>
-                <div class="flex flex-col items-start p-8 rounded-lg bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <div class="flex flex-col items-start p-8 rounded-lg bg-white hover:shadow-lg transition-shadow duration-300">
                     <div class="w-14 h-14 flex items-center justify-center mb-6">
                         <i class="ri-checkbox-circle-line text-5xl text-[#1e3a5f]"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-[#1e3a5f] mb-4">Geprüfte Matches</h3>
                     <p class="text-gray-700 text-lg leading-relaxed">Nur qualifizierte Bewerber mit Nachweisen.</p>
                 </div>
-                <div class="flex flex-col items-start p-8 rounded-lg bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <div class="flex flex-col items-start p-8 rounded-lg bg-white hover:shadow-lg transition-shadow duration-300">
                     <div class="w-14 h-14 flex items-center justify-center mb-6">
                         <i class="ri-speed-up-line text-5xl text-[#1e3a5f]"></i>
                     </div>
@@ -262,7 +262,7 @@
             <div class="text-center">
                 <button
                     onclick="scrollToSection('leistungen')"
-                    class="text-[#1e3a5f] font-semibold text-lg hover:underline cursor-pointer whitespace-nowrap"
+                    class="text-white font-semibold text-lg hover:underline cursor-pointer whitespace-nowrap"
                 >
                     Mehr über unsere Arbeitsweise →
                 </button>
@@ -663,7 +663,7 @@
                     </form>
 
                     <!-- Mieter Form -->
-                    <form id="mieter-form" data-readdy-form class="space-y-6" style="display: none;">
+                    <form id="mieter-form" data-readdy-form class="space-y-6" style="display: none;" enctype="multipart/form-data">
                         <div>
                             <label for="m-name" class="block text-gray-700 font-semibold mb-2">
                                 Name *
@@ -750,10 +750,15 @@
                             <label for="m-nachweis" class="block text-gray-700 font-semibold mb-2">
                                 Nachweis/Datei-Upload (Bonitätsnachweis)
                             </label>
-                            <div class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-600 text-base">
-                                Uncollectable
-                            </div>
-                            <p class="text-sm text-gray-600 mt-1">Datei-Uploads können nicht über dieses Formular erfasst werden.</p>
+                            <input
+                                type="file"
+                                id="m-nachweis"
+                                name="nachweis"
+                                accept=".pdf,.jpg,.jpeg,.png"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-700 text-base cursor-pointer"
+                            />
+                            <p class="text-sm text-gray-600 mt-1">Erlaubte Formate: PDF/JPG/PNG · max. 10&nbsp;MB.</p>
+                            <p class="text-sm mt-1" id="m-file-feedback"></p>
                         </div>
 
                         <div>
@@ -812,7 +817,7 @@
                                     rel="noopener noreferrer"
                                     class="text-[#1e3a5f] hover:underline cursor-pointer"
                                 >
-                                    +49 30 123 456 789
++49 30 123 456 789
                                 </a>
                             </div>
                         </div>
@@ -824,7 +829,7 @@
                                     href="tel:+493012345678"
                                     class="text-[#1e3a5f] hover:underline cursor-pointer"
                                 >
-                                    +49 30 123 456 78
++49 30 123 456 78
                                 </a>
                             </div>
                         </div>
@@ -844,17 +849,18 @@
     <!-- Map Section -->
     <section class="py-20 bg-gray-50">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="relative w-full h-96 rounded-lg overflow-hidden shadow-lg">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d155421.21995884927!2d13.23288584999999!3d52.5170365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e373f035901%3A0x42120465b5e3b70!2sBerlin%2C%20Germany!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
-                    width="100%"
-                    height="100%"
-                    style="border: 0;"
-                    allowfullscreen
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="Berimmo Standort Berlin"
-                ></iframe>
+            <div class="relative w-full h-96 rounded-lg overflow-hidden shadow-lg" id="map-placeholder">
+              <div class="absolute inset-0 bg-white/85 backdrop-blur-sm flex flex-col items-center justify-center text-center p-6">
+                <p class="text-gray-700 mb-4">Zum Schutz Ihrer Daten wird die Karte erst nach Klick geladen.</p>
+                <button type="button" onclick="loadMap()" class="px-6 py-3 bg-[#1e3a5f] text-white font-semibold rounded-lg hover:bg-[#2d5080] transition-colors">
+                  Karte laden
+                </button>
+                <label for="map-consent" class="mt-3 inline-flex items-center gap-2 text-gray-700">
+                  <input type="checkbox" id="map-consent" class="w-4 h-4">
+                  <span>Entscheidung merken</span>
+                </label>
+              </div>
+              <div class="w-full h-full bg-gray-100"></div>
             </div>
             <div class="text-center mt-6">
                 <a
@@ -876,7 +882,7 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-t border-white/10 pt-10">
           <!-- Brand / Intro -->
           <div>
-            <div class="text-2xl font-extrabold tracking-tight">Berimmo</div>
+            <img id="footer-logo" src="assets/img/berimmo_white_banner.png" alt="Berimmo – Vermietung" class="h-20 md:h-24 w-auto" loading="lazy" decoding="async" width="280" height="80" onerror="(function(img){ if(!img.dataset.alt){img.dataset.alt='1'; img.src='assets/img/berimmo-white-logo.png';} else if(img.dataset.alt==='1'){img.dataset.alt='2'; img.src='./assets/img/berimmo_white_logo.png';} else if(img.dataset.alt==='2'){img.dataset.alt='3'; img.src='./berimmo_white_logo.png';}})(this)" />
             <p class="text-gray-300 mt-3">Kostenlose Mietersuche für Vermieter in Berlin – schnell, geprüft, digital.</p>
           </div>
           <!-- Kontakt -->
@@ -1046,11 +1052,33 @@
 
         document.getElementById('mieter-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Show success message
+
+            const fileInput = document.getElementById('m-nachweis');
+            const feedback = document.getElementById('m-file-feedback');
+            const file = fileInput && fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
+
+            // simple client-side validation
+            if (file) {
+                const maxBytes = 10 * 1024 * 1024; // 10 MB
+                if (file.size > maxBytes) {
+                    feedback.className = 'text-sm mt-1 text-red-600';
+                    feedback.textContent = `Datei zu groß (${(file.size/1024/1024).toFixed(1)} MB). Maximal 10 MB.`;
+                    fileInput.focus();
+                    return;
+                }
+                feedback.className = 'text-sm mt-1 text-gray-600';
+                feedback.textContent = `Ausgewählt: ${file.name} · ${(file.size/1024/1024).toFixed(1)} MB`;
+
+                // Placeholder for future backend integration (e.g., presigned URL)
+                // window._berimmoUpload can be read by later code to actually upload
+                window._berimmoUpload = { name: file.name, size: file.size, type: file.type };
+            } else {
+                feedback.className = 'text-sm mt-1 text-gray-600';
+                feedback.textContent = 'Kein Anhang ausgewählt (optional).';
+            }
+
+            // show success message (keeps current UX)
             document.getElementById('mieter-success').classList.remove('hidden');
-            
-            // Hide success message after 5 seconds
             setTimeout(() => {
                 document.getElementById('mieter-success').classList.add('hidden');
             }, 5000);
@@ -1066,7 +1094,51 @@
                     heroContent.style.transform = 'translateY(0)';
                 }
             }, 100);
+
+            // attach lightweight validation to file input (mieter-form)
+            const mFile = document.getElementById('m-nachweis');
+            const mFeed = document.getElementById('m-file-feedback');
+            if (mFile && mFeed) {
+                mFile.addEventListener('change', () => {
+                    const f = mFile.files && mFile.files[0] ? mFile.files[0] : null;
+                    if (!f) { mFeed.className = 'text-sm mt-1 text-gray-600'; mFeed.textContent = ''; return; }
+                    const maxBytes = 10 * 1024 * 1024;
+                    if (f.size > maxBytes) {
+                        mFeed.className = 'text-sm mt-1 text-red-600';
+                        mFeed.textContent = `Datei zu groß (${(f.size/1024/1024).toFixed(1)} MB). Maximal 10 MB.`;
+                    } else {
+                        mFeed.className = 'text-sm mt-1 text-gray-600';
+                        mFeed.textContent = `Ausgewählt: ${f.name} · ${(f.size/1024/1024).toFixed(1)} MB`;
+                    }
+                });
+            }
+
+            // Auto-load map when user previously consented
+            try {
+                if (localStorage.getItem('mapConsent') === 'true') {
+                    loadMap();
+                }
+            } catch(e) {}
         });
+        function loadMap() {
+            const ph = document.getElementById('map-placeholder');
+            if (!ph) return;
+            const remember = document.getElementById('map-consent') && document.getElementById('map-consent').checked;
+            ph.innerHTML = `
+                <iframe
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d155421.21995884927!2d13.23288584999999!3d52.5170365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e373f035901%3A0x42120465b5e3b70!2sBerlin%2C%20Germany!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Berimmo Standort Berlin"
+                ></iframe>`;
+            if (remember) {
+                try { localStorage.setItem('mapConsent', 'true'); } catch(e) {}
+            }
+        }
     </script>
 </body>
 </html>
