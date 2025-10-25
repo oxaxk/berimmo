@@ -42,17 +42,19 @@
         }
         
         .mobile-menu {
-            transition: all 0.3s ease;
+            transition: opacity 0.25s ease, transform 0.25s ease;
         }
-        
+
         .mobile-menu.open {
-            max-height: 400px;
             opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
         }
-        
+
         .mobile-menu.closed {
-            max-height: 0;
             opacity: 0;
+            pointer-events: none;
+            transform: translateY(-4px);
             overflow: hidden;
         }
         
@@ -135,52 +137,55 @@
                 </div>
 
                 <!-- Mobile Menu -->
-                <div id="mobile-menu" class="md:hidden mobile-menu closed absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-200 py-4">
-                    <div class="flex flex-col gap-4 px-6">
+                <div id="mobile-menu" class="md:hidden mobile-menu closed fixed inset-0 z-50 bg-white/95 backdrop-blur-md overflow-y-auto">
+                    <button onclick="closeMobileMenu()" aria-label="Menü schließen" class="absolute top-4 right-4 p-2 rounded-md text-[#1e3a5f] hover:text-[#2d5080] focus:outline-none focus:ring-2 focus:ring-[#1e3a5f]">
+                      <i class="ri-close-line text-3xl"></i>
+                    </button>
+                    <div class="flex flex-col h-full items-center justify-start pt-24 pb-20 gap-6 px-8">
                         <button
                             onclick="scrollToSection('vorteile'); closeMobileMenu();"
-                            class="text-[#1e3a5f] hover:text-[#2d5080] font-medium transition-colors cursor-pointer text-left py-2 whitespace-nowrap"
+                            class="text-xl text-[#1e3a5f] hover:text-[#2d5080] font-semibold transition-colors cursor-pointer text-center py-3 w-full whitespace-nowrap"
                         >
                             Vorteile
                         </button>
                         <button
                             onclick="scrollToSection('prozess'); closeMobileMenu();"
-                            class="text-[#1e3a5f] hover:text-[#2d5080] font-medium transition-colors cursor-pointer text-left py-2 whitespace-nowrap"
+                            class="text-xl text-[#1e3a5f] hover:text-[#2d5080] font-semibold transition-colors cursor-pointer text-center py-3 w-full whitespace-nowrap"
                         >
                             Prozess
                         </button>
                         <button
                             onclick="scrollToSection('leistungen'); closeMobileMenu();"
-                            class="text-[#1e3a5f] hover:text-[#2d5080] font-medium transition-colors cursor-pointer text-left py-2 whitespace-nowrap"
+                            class="text-xl text-[#1e3a5f] hover:text-[#2d5080] font-semibold transition-colors cursor-pointer text-center py-3 w-full whitespace-nowrap"
                         >
                             Leistungen
                         </button>
                         <button
                             onclick="scrollToSection('faq'); closeMobileMenu();"
-                            class="text-[#1e3a5f] hover:text-[#2d5080] font-medium transition-colors cursor-pointer text-left py-2 whitespace-nowrap"
+                            class="text-xl text-[#1e3a5f] hover:text-[#2d5080] font-semibold transition-colors cursor-pointer text-center py-3 w-full whitespace-nowrap"
                         >
                             FAQ
                         </button>
                         <button
                             onclick="scrollToSection('kontakt'); closeMobileMenu();"
-                            class="text-[#1e3a5f] hover:text-[#2d5080] font-medium transition-colors cursor-pointer text-left py-2 whitespace-nowrap"
+                            class="text-xl text-[#1e3a5f] hover:text-[#2d5080] font-semibold transition-colors cursor-pointer text-center py-3 w-full whitespace-nowrap"
                         >
                             Kontakt
                         </button>
-                        <button onclick="location.hash='vermieter'; switchForm('vermieter'); scrollToSection('kontakt'); closeMobileMenu();" class="text-[#1e3a5f] hover:text-[#2d5080] font-medium transition-colors cursor-pointer text-left py-2 whitespace-nowrap">Für Vermieter</button>
-                        <button onclick="location.hash='mieter'; switchForm('mieter'); scrollToSection('kontakt'); closeMobileMenu();" class="text-[#1e3a5f] hover:text-[#2d5080] font-medium transition-colors cursor-pointer text-left py-2 whitespace-nowrap">Für Mieter</button>
+                        <button onclick="location.hash='vermieter'; switchForm('vermieter'); scrollToSection('kontakt'); closeMobileMenu();" class="text-xl text-[#1e3a5f] hover:text-[#2d5080] font-semibold transition-colors cursor-pointer text-center py-3 w-full whitespace-nowrap">Für Vermieter</button>
+                        <button onclick="location.hash='mieter'; switchForm('mieter'); scrollToSection('kontakt'); closeMobileMenu();" class="text-xl text-[#1e3a5f] hover:text-[#2d5080] font-semibold transition-colors cursor-pointer text-center py-3 w-full whitespace-nowrap">Für Mieter</button>
                     </div>
                 </div>
             </div>
         </nav>
 
         <!-- Hero Content -->
-        <div class="flex-1 flex items-start md:items-center justify-center pt-4 md:pt-0">
+        <div class="flex-1 flex items-start md:items-center justify-center pt-0 pb-24 md:pt-0 md:pb-0">
             <div 
                 class="absolute inset-0 z-0"
                 style="background-image: url('https://readdy.ai/api/search-image?query=elegant%20modern%20Berlin%20apartment%20building%20facade%20architecture%20with%20clean%20lines%20and%20classic%20European%20style%20soft%20natural%20daylight%20minimal%20professional%20real%20estate%20photography%20muted%20tones%20subtle%20depth&width=1920&height=1080&seq=hero-bg-001&orientation=landscape'); background-size: cover; background-position: center; opacity: 0.20;"
             ></div>
-            <div class="relative z-10 max-w-6xl mx-auto px-6 text-center fade-in">
+            <div class="relative z-10 max-w-6xl mx-auto px-6 text-center fade-in -mt-10 md:mt-0">
                 <div class="inline-block mb-4 px-3 py-1 rounded-full bg-[#1e3a5f]/10 text-[#1e3a5f] font-semibold text-sm">Für Vermieter & Hausverwaltungen</div>
                 <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1e3a5f] mb-6 leading-tight">
                     Kostenfreie Mietersuche für Vermieter in Berlin.
